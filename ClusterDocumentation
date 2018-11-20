@@ -1,0 +1,18 @@
+#https://console.bluemix.net/containers-kubernetes/overview
+
+#After you've installed the CLIs for running Kubernetes commands and managing Docker images, you can create your first cluster!
+#Be sure to specify the cluster configurations that fit your needs.
+
+ibmcloud cs cluster-create --location dal10 --public-vlan <public_vlan_id> \
+--private-vlan <private_vlan_id> \
+--machine-type b2c.4x16 --workers 3 \
+--name <cluster_name>
+
+#With the registry plugin installed, you can create a namespace and push images to your private registry.
+
+ibmcloud cr namespace-add <your_namespace>
+
+#The Vulnerability Advisor automatically monitors your repositories for any vulnerable packages,
+#allowing you to see details and instructions for how to fix any issues that arise.
+
+ibmcloud cr va registry.<region>/<my_namespace>/<my_image>:<tag>
